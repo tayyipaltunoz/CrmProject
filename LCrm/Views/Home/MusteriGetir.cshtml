@@ -1,0 +1,19 @@
+﻿@using System.Web.UI.WebControls
+@model  LCrm.Models.EntityFramework.Customers
+@{
+    ViewBag.Title = "MusteriGetir";
+}
+
+@using (Html.BeginForm("Guncelle", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.FirmaAdi, new { @class = "form-control", @placeholder = "Firma Ad" })
+        @Html.TextBoxFor(m => m.YetkiliAd, new { @class = "form-control", @placeholder = "Firma Yetkili İsmi",@style="margin-top:10px" })
+        @Html.TextBoxFor(m => m.Tel, new { @class = "form-control", @placeholder = "Firma İletişim No",@style="margin-top:10px" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <div style="margin-top: 10px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}
+

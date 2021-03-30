@@ -1,0 +1,34 @@
+﻿@using LCrm.Models.EntityFramework
+@model List<Customers>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Firma Id</th>
+        <th>Firma İsmi</th>
+        <th>Firma Yetkili Kişi</th>
+        <th>Firma İletişim No</th>
+        <th>İşlemler</th>
+    <tbody>
+        @foreach (var Customer in Model)
+        {
+            <tr>
+                <td>@Customer.Id</td>
+                <td>@Customer.FirmaAdi</td>
+                <td>@Customer.YetkiliAd</td>
+                <td>@Customer.Tel</td>
+                <td>
+                    <a href="/Home/Sil/@Customer.Id" class="btn btn-danger">Sil</a>
+                    <a href="/Home/MusteriGetir/@Customer.Id" class="btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+    </tr>
+</table>
+<a href="/Home/Ekle" class="btn btn-primary">Yeni Müşteri Ekle</a>
